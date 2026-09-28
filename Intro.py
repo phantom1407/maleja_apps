@@ -44,6 +44,25 @@ html, body, [class*="css"], .stApp {{
         #FFFAFD;
 }}
 
+/* ---------- Forzar tema claro sin config.toml ---------- */
+:root, .stApp {{
+    color-scheme: light;
+}}
+[data-testid="stHeader"] {{
+    background: transparent;
+}}
+[data-testid="stToolbar"] * , [data-testid="stSidebarCollapseButton"] *,
+[data-testid="stSidebarCollapsedControl"] *, [data-testid="stExpandSidebarButton"] * {{
+    color: {TINTA} !important;
+}}
+.stApp p, .stApp span, .stApp div, .stApp label {{
+    color: {TINTA};
+}}
+::selection {{
+    background: {MORADO};
+    color: {TINTA};
+}}
+
 /* ---------- Barra lateral ---------- */
 [data-testid="stSidebar"] {{
     background: linear-gradient(180deg, {ROSA_SUAVE} 0%, {MORADO_SUAVE} 50%, {AZUL_SUAVE} 100%);
@@ -324,22 +343,7 @@ SECCIONES = [
                 "imagen": "OIG2.jpg",
                 "texto": "Usa un modelo entrenado por ti para clasificar imágenes.",
                 "url": "https://tmprofe-mwizzaqtqk82tjftjn8rva.streamlit.app/",
-            },
-            {
-                "titulo": "Análisis de imagen",
-                "emoji": "🖼️",
-                "imagen": "OIG4.jpg",
-                "texto": "Describe e interpreta el contenido de una imagen.",
-                "url": "https://vision2-gpt4o.streamlit.app/",
-            },
-            {
-                "titulo": "Sistema ciberfísico",
-                "emoji": "🤖",
-                "imagen": "OIG6.jpg",
-                "texto": "Conecta la inteligencia artificial con dispositivos del mundo físico.",
-                # OJO: esta URL es la misma de "Análisis de imagen". Cámbiala por la correcta.
-                "url": "https://vision2-gpt4o.streamlit.app/",
-            },
+            },            
         ],
     },
 ]
