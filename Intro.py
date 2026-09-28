@@ -62,28 +62,28 @@ with col2:
  st.write(f"Transcriptor: [Enlace]({url})")
 
  st.subheader("Sentimientos")
- image = Image.open('OIG3.jpg')
+ image = Image.open('OIG9.jpg')
  st.image(image, width=200)
  st.write("En la siguiente enlace veremos un análisis de sentimientos") 
  url = "https://sentimenta-mzapeebtgm4ysecazdwqny.streamlit.app/"
  st.write(f"Transcriptor: [Enlace]({url})")
 
  st.subheader("TF-IDF")
- image = Image.open('OIG3.jpg')
+ image = Image.open('OIG10.jpg')
  st.image(image, width=200)
  st.write("En la siguiente enlace veremos un análisis de texto") 
  url = "https://tdfesp-drqgijv5t8tzd7wrxhzado.streamlit.app/"
  st.write(f"Transcriptor: [Enlace]({url})")
 
  st.subheader("Yolo")
- image = Image.open('OIG3.jpg')
+ image = Image.open('OIG5.jpg')
  st.image(image, width=200)
  st.write("En la siguiente enlace veremos como usar YOLO") 
  url = "https://yolov5profe-pvibkrfl3nvpzax9yostns.streamlit.app/"
  st.write(f"Transcriptor: [Enlace]({url})")
 
  st.subheader("Teachable machine")
- image = Image.open('OIG3.jpg')
+ image = Image.open('OIG2.jpg')
  st.image(image, width=200)
  st.write("En la siguiente enlace veremos como usar TM") 
  url = "https://tmprofe-mwizzaqtqk82tjftjn8rva.streamlit.app/"
