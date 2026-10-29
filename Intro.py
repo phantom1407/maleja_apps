@@ -259,7 +259,6 @@ a.btn:focus-visible {{
 # ------------------------------------------------------------
 # Datos de las aplicaciones
 # ------------------------------------------------------------
-URL_SITIO = "https://sites.google.com/view/aplicacionesdeia/inicio"
 URL_INTRO = "https://phantomintro-mscypzjs6a3mkwf2du2y2k.streamlit.app/"
 
 SECCIONES = [
@@ -493,7 +492,6 @@ st.markdown(
     "analizan sentimientos y mucho más. Haz clic en cualquiera para probarla.</div>"
     '<div class="hero-buttons">'
     f'<a class="btn btn-grad" href="{URL_INTRO}" target="_blank" rel="noopener">✨ Ver la intro</a>'
-    f'<a class="btn btn-morado" href="{URL_SITIO}" target="_blank" rel="noopener">📚 Páginas y ejercicios prácticos</a>'
     "</div>"
     "</div>",
     unsafe_allow_html=True,
