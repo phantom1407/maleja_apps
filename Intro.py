@@ -21,6 +21,10 @@ MORADO = "#C9B2FF"
 MORADO_SUAVE = "#EFE6FF"
 AZUL = "#A8D4FF"
 AZUL_SUAVE = "#E3F1FF"
+MENTA = "#A8E6CF"
+MENTA_SUAVE = "#E3F8EF"
+DURAZNO = "#FFD3A5"
+DURAZNO_SUAVE = "#FFF0DF"
 TINTA = "#4B3F72"
 
 # ------------------------------------------------------------
@@ -157,6 +161,8 @@ a.btn:focus-visible {{
 .btn-rosa   {{ background: {ROSA}; }}
 .btn-morado {{ background: {MORADO}; }}
 .btn-azul   {{ background: {AZUL}; }}
+.btn-menta  {{ background: {MENTA}; }}
+.btn-durazno {{ background: {DURAZNO}; }}
 .btn-grad   {{ background: linear-gradient(90deg, {ROSA}, {MORADO}, {AZUL}); }}
 
 /* ---------- Secciones ---------- */
@@ -197,6 +203,8 @@ a.btn:focus-visible {{
 .card-rosa   {{ background: {ROSA_SUAVE};   box-shadow: 0 12px 28px rgba(255, 181, 210, 0.35); }}
 .card-morado {{ background: {MORADO_SUAVE}; box-shadow: 0 12px 28px rgba(201, 178, 255, 0.35); }}
 .card-azul   {{ background: {AZUL_SUAVE};   box-shadow: 0 12px 28px rgba(168, 212, 255, 0.35); }}
+.card-menta  {{ background: {MENTA_SUAVE};  box-shadow: 0 12px 28px rgba(168, 230, 207, 0.35); }}
+.card-durazno {{ background: {DURAZNO_SUAVE}; box-shadow: 0 12px 28px rgba(255, 211, 165, 0.35); }}
 
 .card-img {{
     width: 100%;
@@ -343,7 +351,77 @@ SECCIONES = [
                 "imagen": "OIG2.jpg",
                 "texto": "Usa un modelo entrenado por ti para clasificar imágenes.",
                 "url": "https://tmprofe-mwizzaqtqk82tjftjn8rva.streamlit.app/",
-            },            
+            },
+            {
+                "titulo": "Teachable Machine + YOLO",
+                "emoji": "🤖",
+                "imagen": "",
+                "texto": "Clasifica imágenes con tu propio modelo y detecta objetos con YOLO en una sola app.",
+                "url": "https://clase14-e2pawdbv7satuaepbpfwvu.streamlit.app/YOLO",
+            },
+        ],
+    },
+    {
+        "titulo": "Control e IoT",
+        "descripcion": "Apps que envían órdenes a dispositivos reales usando MQTT.",
+        "color": "menta",
+        "apps": [
+            {
+                "titulo": "Control MQTT (original)",
+                "emoji": "🎛️",
+                "imagen": "",
+                "texto": "Versión original: botones ON/OFF y un valor analógico enviados por MQTT.",
+                "url": "https://sendcm-lzyyymvqxqosuygs6xxssd.streamlit.app/",
+            },
+            {
+                "titulo": "Control MQTT",
+                "emoji": "💡",
+                "imagen": "",
+                "texto": "Enciende, apaga y envía valores a un dispositivo conectado por MQTT.",
+                "url": "https://atmv4xdmtdjknyzdxgyahr.streamlit.app/",
+            },
+            {
+                "titulo": "Control por voz",
+                "emoji": "🎙️",
+                "imagen": "",
+                "texto": "Dale órdenes con tu voz y la app las envía por MQTT.",
+                "url": "https://pcn8uwgj2bfvb4nmnfjc9e.streamlit.app/",
+            },
+            {
+                "titulo": "Control por voz y MQTT",
+                "emoji": "🗣️",
+                "imagen": "",
+                "texto": "Controla dispositivos con comandos de voz o con botones MQTT.",
+                "url": "https://clase14audio-hsderhuufanj6v9kdqqpxn.streamlit.app/Control_por_voz",
+            },
+        ],
+    },
+    {
+        "titulo": "Dibujo y reconocimiento",
+        "descripcion": "Apps donde dibujas y la inteligencia artificial adivina qué es.",
+        "color": "durazno",
+        "apps": [
+            {
+                "titulo": "Tablero inteligente",
+                "emoji": "🖍️",
+                "imagen": "",
+                "texto": "Dibuja en el tablero y la app identifica la forma que hiciste.",
+                "url": "https://histinf-89sfyzh9qket4fx3trif9t.streamlit.app/",
+            },
+            {
+                "titulo": "Reconocimiento de números",
+                "emoji": "🔢",
+                "imagen": "",
+                "texto": "Dibuja un número del 0 al 9 y la app adivina cuál es.",
+                "url": "https://mnistpred-5pbwcwwtdwolu3qxfsyuju.streamlit.app/",
+            },
+            {
+                "titulo": "Tablero inteligente 2",
+                "emoji": "🎨",
+                "imagen": "",
+                "texto": "Otro tablero para dibujar y dejar que la IA reconozca tu dibujo.",
+                "url": "https://drawrecog.streamlit.app/",
+            },
         ],
     },
 ]
@@ -356,7 +434,7 @@ SECCIONES = [
 def imagen_a_base64(ruta: str):
     """Convierte una imagen local en data URI para usarla dentro del HTML."""
     archivo = Path(ruta)
-    if not archivo.exists():
+    if not ruta or not archivo.is_file():
         return None
     extension = archivo.suffix.lower().replace(".", "")
     tipo = "jpeg" if extension in ("jpg", "jpeg") else extension
@@ -382,7 +460,7 @@ def tarjeta(app: dict, color: str) -> str:
     )
 
 
-COLORES_BARRA = {"rosa": ROSA, "morado": MORADO, "azul": AZUL}
+COLORES_BARRA = {"rosa": ROSA, "morado": MORADO, "azul": AZUL, "menta": MENTA, "durazno": DURAZNO}
 
 # ------------------------------------------------------------
 # Barra lateral
@@ -399,6 +477,8 @@ with st.sidebar:
         f'<div class="legend-item"><span class="dot" style="background:{ROSA}"></span>Voz y lenguaje</div>'
         f'<div class="legend-item"><span class="dot" style="background:{MORADO}"></span>Análisis de texto</div>'
         f'<div class="legend-item"><span class="dot" style="background:{AZUL}"></span>Visión y mundo físico</div>'
+        f'<div class="legend-item"><span class="dot" style="background:{MENTA}"></span>Control e IoT</div>'
+        f'<div class="legend-item"><span class="dot" style="background:{DURAZNO}"></span>Dibujo y reconocimiento</div>'
         "</div>",
         unsafe_allow_html=True,
     )
